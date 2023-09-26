@@ -1,11 +1,17 @@
-#1.1 implement a recursive function to calculate the Factorial of given number. 
-num = int(input("Enter a number: "))    
-factorial = 1
-if num < 0:    
-   print(" Factorial does not exist for negative numbers")    
-elif num == 0:    
-   print("The factorial of 0 is 1")    
-else:    
-   for i in range(1,num + 1):    
-       factorial = factorial*i    
-   print("The factorial of",num,"is",factorial) 
+#linear
+import matplotlib.pyplot as plt
+from scipy import stats
+
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+
+slope, intercept, r, p, std_err = stats.linregress(x, y)
+
+def myfunc(x):
+  return slope * x + intercept
+
+mymodel = list(map(myfunc, x))
+
+plt.scatter(x, y)
+plt.plot(x, mymodel)
+plt.show()
